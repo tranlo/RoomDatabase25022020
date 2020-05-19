@@ -15,8 +15,17 @@ import android.widget.Toast;
 
 import com.example.roomdatabase25022020.database.SinhvienDatabase;
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
+import com.example.roomdatabase25022020.repository.SinhvienRepository;
+
+import org.reactivestreams.Subscription;
 
 import java.util.List;
+
+import io.reactivex.FlowableSubscriber;
+import io.reactivex.MaybeObserver;
+import io.reactivex.Scheduler;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
 
     }
 }

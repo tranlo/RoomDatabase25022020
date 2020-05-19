@@ -10,7 +10,7 @@ import java.util.List;
 @Dao
 public interface SinhvienDao {
 
-    // Select : lay du lieu tu table
+    // Select : lay du
     @Query("SELECT * FROM sinhvien")
     List<Sinhvien> getSinhvien();
 
