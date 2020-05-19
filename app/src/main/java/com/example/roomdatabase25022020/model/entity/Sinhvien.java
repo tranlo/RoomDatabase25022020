@@ -2,13 +2,13 @@ package com.example.roomdatabase25022020.model.entity;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
-@Entity
+@Entity(tableName = "sinhvien")
 public class Sinhvien {
     @PrimaryKey(autoGenerate = true)
     private Integer id;
+    @ColumnInfo(typeAffinity = ColumnInfo.BLOB)
     private byte[] image;
     private String name;
     private String address;
