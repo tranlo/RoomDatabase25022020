@@ -21,7 +21,8 @@ public abstract class SinhvienDatabase extends RoomDatabase {
                     context,
                     SinhvienDatabase.class,
                     "Quanlysinhvien"
-            ).build();
+            )
+                    .build();
         }
         return sinhvienDatabase;
     }
