@@ -5,8 +5,8 @@ import android.content.Context;
 import com.example.roomdatabase25022020.database.SinhvienDao;
 import com.example.roomdatabase25022020.database.SinhvienDatabase;
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
-
 import java.util.List;
+import io.reactivex.Observable;
 
 public class SinhvienRepository {
     private static SinhvienRepository sinhvienRepository = null;
@@ -23,7 +23,7 @@ public class SinhvienRepository {
         return sinhvienRepository;
     }
 
-    public List<Sinhvien> getListSinhvien() {
+    public Observable<List<Sinhvien>> getListSinhvien() {
         return sinhvienDao.getSinhvien();
     }
 }
