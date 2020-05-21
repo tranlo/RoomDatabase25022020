@@ -1,4 +1,4 @@
-package com.example.roomdatabase25022020;
+package com.example.roomdatabase25022020.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.roomdatabase25022020.R;
 import com.example.roomdatabase25022020.database.SinhvienDatabase;
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
 import com.example.roomdatabase25022020.repository.SinhvienRepository;
