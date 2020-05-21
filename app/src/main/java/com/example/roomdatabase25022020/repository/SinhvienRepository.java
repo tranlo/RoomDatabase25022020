@@ -37,4 +37,8 @@ public class SinhvienRepository {
     public Completable updateSinhvien(Sinhvien sinhvien){
         return  sinhvienDao.updateSinhvien(sinhvien);
     }
+
+    public Completable deleteSinhvien(Sinhvien sinhvien){
+        return  sinhvienDao.deleteSinhvien(sinhvien);
+    }
 }
