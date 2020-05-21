@@ -3,9 +3,12 @@ package com.example.roomdatabase25022020.database;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
+
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
@@ -20,5 +23,7 @@ public interface SinhvienDao {
     @Insert
     Maybe<Long> insertSinhvien(Sinhvien sinhvien);
 
+    @Update
+    Completable updateSinhvien(Sinhvien sinhvien);
 
 }

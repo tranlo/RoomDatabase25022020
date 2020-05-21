@@ -24,6 +24,7 @@ import org.reactivestreams.Subscription;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 
+import io.reactivex.CompletableObserver;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.MaybeObserver;
 import io.reactivex.Observer;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Lay du lieu
 //        SinhvienRepository
 //                .getInstance(this)
 //                .getListSinhvien()
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    @Override
 //                    public void onNext(List<Sinhvien> sinhviens) {
+//                        Log.d("BBB",sinhviens.size() + "");
 //                        Toast.makeText(MainActivity.this, sinhviens.size() + "", Toast.LENGTH_SHORT).show();
 //                    }
 //
@@ -66,27 +69,57 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    }
 //                });
-        Bitmap bitmap =
-                BitmapFactory.decodeResource(getResources(),R.drawable.hinhdemo);
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-        byte[] byteArrayImage = stream.toByteArray();
 
-        Sinhvien sinhvien = new Sinhvien();
-        sinhvien.setName("Nguyen Van A");
-        sinhvien.setAddress("Quan 1");
-        sinhvien.setImage(byteArrayImage);
-        SinhvienRepository
-                .getInstance(this)
-                .insertSinhvien(sinhvien)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<Long>() {
-                    @Override
-                    public void accept(Long aLong) throws Exception {
-                        Toast.makeText(MainActivity.this, aLong + "", Toast.LENGTH_SHORT).show();
-                        Log.d("BBB",aLong + "");
-                    }
-                });
+        // THem du lieu
+//        Bitmap bitmap =
+//                BitmapFactory.decodeResource(getResources(),R.drawable.hinhdemo);
+//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+//        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+//        byte[] byteArrayImage = stream.toByteArray();
+//
+//        Sinhvien sinhvien = new Sinhvien();
+//        sinhvien.setName("Nguyen Van A");
+//        sinhvien.setAddress("Quan 1");
+//        sinhvien.setImage(byteArrayImage);
+//        SinhvienRepository
+//                .getInstance(this)
+//                .insertSinhvien(sinhvien)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<Long>() {
+//                    @Override
+//                    public void accept(Long aLong) throws Exception {
+//                        Toast.makeText(MainActivity.this, aLong + "", Toast.LENGTH_SHORT).show();
+//                        Log.d("BBB",aLong + "");
+//                    }
+//                });
+
+        // Cap nhat sinh vien
+//        Sinhvien sinhvien = new Sinhvien();
+//        sinhvien.setId(1);
+//        sinhvien.setName("Nguyen Van B");
+//        sinhvien.setAddress("Quan 2");
+
+//        SinhvienRepository
+//                .getInstance(this)
+//                .updateSinhvien(sinhvien)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new CompletableObserver() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//                        Toast.makeText(MainActivity.this, "Cap nhat thanh cong", Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//                });
     }
 }

@@ -7,6 +7,7 @@ import com.example.roomdatabase25022020.database.SinhvienDatabase;
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
 import java.util.List;
 
+import io.reactivex.Completable;
 import io.reactivex.Maybe;
 import io.reactivex.Observable;
 
@@ -31,5 +32,9 @@ public class SinhvienRepository {
 
     public Maybe<Long> insertSinhvien(Sinhvien sinhvien) {
         return sinhvienDao.insertSinhvien(sinhvien);
+    }
+
+    public Completable updateSinhvien(Sinhvien sinhvien){
+        return  sinhvienDao.updateSinhvien(sinhvien);
     }
 }
