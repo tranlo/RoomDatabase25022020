@@ -10,21 +10,22 @@ import androidx.lifecycle.ViewModel;
 import com.example.roomdatabase25022020.model.entity.Sinhvien;
 import com.example.roomdatabase25022020.repository.SinhvienRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainViewModel extends ViewModel implements LifecycleObserver {
     private MutableLiveData<List<Sinhvien>> sinhvienList;
-    public LiveData<List<Sinhvien>> getSinhvienSuccess;
 
     public MainViewModel() {
         this.sinhvienList = new MutableLiveData<>();
+    }
+
+    public LiveData<List<Sinhvien>> getSinhvienSuccess(){
+        return sinhvienList;
     }
 
     public void getAllSinhVien(Context context) {
@@ -42,7 +43,6 @@ public class MainViewModel extends ViewModel implements LifecycleObserver {
                     @Override
                     public void onNext(List<Sinhvien> sinhviens) {
                         sinhvienList.setValue(sinhviens);
-                        getSinhvienSuccess = sinhvienList;
                     }
 
                     @Override

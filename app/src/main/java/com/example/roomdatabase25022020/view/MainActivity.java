@@ -1,6 +1,7 @@
 package com.example.roomdatabase25022020.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -28,7 +29,6 @@ import java.util.List;
 import io.reactivex.CompletableObserver;
 import io.reactivex.FlowableSubscriber;
 import io.reactivex.MaybeObserver;
-import io.reactivex.Observer;
 import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
@@ -48,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         // Chia se vong doi qua cho viewmodel
         getLifecycle().addObserver(mMainViewModel);
 
+        // observer (Lang nghe du lieu)
+        observer();
+        //setListener(Goi chuc nang)
+        setListener();
         //Lay du lieu
 //        SinhvienRepository
 //                .getInstance(this)
@@ -148,5 +152,17 @@ public class MainActivity extends AppCompatActivity {
 //
 //                    }
 //                });
+    }
+
+    private void observer() {
+        mMainViewModel.getSinhvienSuccess().observe(this, new Observer<List<Sinhvien>>() {
+            @Override
+            public void onChanged(List<Sinhvien> sinhviens) {
+                Toast.makeText(MainActivity.this, sinhviens.size() + "", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void setListener() {
+        mMainViewModel.getAllSinhVien(this);
     }
 }
