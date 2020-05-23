@@ -43,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mMainViewModel = new MainViewModel();
+        // Giu lai thong tin cho activity
+        mMainViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        // Chia se vong doi qua cho viewmodel
+        getLifecycle().addObserver(mMainViewModel);
 
         //Lay du lieu
 //        SinhvienRepository
