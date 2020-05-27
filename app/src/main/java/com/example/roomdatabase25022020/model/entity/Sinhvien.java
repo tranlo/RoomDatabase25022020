@@ -12,7 +12,7 @@ public class Sinhvien {
     private byte[] image;
     private String name;
     private String address;
-
+//hihi
     public Sinhvien() {
 
     }
